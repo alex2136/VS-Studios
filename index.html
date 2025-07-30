@@ -5,11 +5,262 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vitea Studios - Roblox Development & Game Innovation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 20, 30, 0.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 20px;
+      z-index: 10002;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-banner.show {
+      transform: translateY(0);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .cookie-text h4 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cookie-text p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cookie-accept {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+
+    .cookie-accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .cookie-decline {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cookie-decline:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .security-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 50px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #22c55e;
+      font-weight: 500;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .security-badge:hover {
+      transform: scale(1.05);
+    }
+
+    .security-dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: securityPulse 2s infinite;
+    }
+
+    @keyframes securityPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .admin-panel {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(20, 20, 30, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      z-index: 10001;
+      display: none;
+    }
+
+    .admin-panel.show {
+      display: block;
+      animation: slideInRight 0.3s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .admin-title {
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-close {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      margin-left: auto;
+      font-size: 18px;
+    }
+
+    .user-stats {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .stat-value {
+      color: #6366f1;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .cookie-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .admin-panel {
+        right: 10px;
+        left: 10px;
+        width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="scroll-indicator"></div>
   
   <div class="particles"></div>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h4>🍪 We use cookies to enhance your experience</h4>
+        <p>We use essential cookies for site functionality and analytics cookies to improve your browsing experience. Your privacy is important to us.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept All</button>
+        <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline Optional</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="security-badge" onclick="toggleAdminPanel()">
+    <div class="security-dot"></div>
+    Secure Session
+  </div>
+
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-title">
+      🔒 Session Info
+      <button class="admin-close" onclick="toggleAdminPanel()">×</button>
+    </div>
+    <div class="user-stats">
+      <div class="stat-item">
+        <span class="stat-label">Session ID:</span>
+        <span class="stat-value" id="sessionId">Loading...</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Visit Count:</span>
+        <span class="stat-value" id="visitCount">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Last Visit:</span>
+        <span class="stat-value" id="lastVisit">Never</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Page Views:</span>
+        <span class="stat-value" id="pageViews">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Time on Site:</span>
+        <span class="stat-value" id="timeOnSite">0m</span>
+      </div>
+    </div>
+  </div>
+
   <nav>
     <div class="logo">
       <div class="logo-container">
@@ -26,6 +277,7 @@
       <li><a href="https://discord.gg/PDV" target="_blank" rel="noopener noreferrer">Discord</a></li>
     </ul>
   </nav>
+
   <section id="home">
     <div class="content">
       <div class="main-logo">
@@ -42,7 +294,7 @@
           </svg>
           Join Discord
         </a>
-        <a href="https://www.roblox.com/communities/32544455/Vitea-Studios#!/about" target="_blank" rel="noopener noreferrer" class="btn roblox-btn">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn roblox-btn">
           <svg class="btn-icon" viewBox="0 0 24 24">
             <path d="M4.5 5.5l15 13-1 1.5L3.5 7l1-1.5z"/>
             <path d="M6 8l8 7 4-1-8-7-4 1z"/>
@@ -53,6 +305,7 @@
       </div>
     </div>
   </section>
+
   <section id="achievements">
     <h2>Our Achievements</h2>
     <div class="cards">
@@ -185,6 +438,103 @@
   </footer>
 
   <script>
+    class CookieManager {
+      constructor() {
+        this.sessionId = this.generateSessionId();
+        this.startTime = Date.now();
+        this.initializeSession();
+      }
+
+      generateSessionId() {
+        return 'VS_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+      }
+
+      setCookie(name, value, days = 30) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict;Secure`;
+      }
+
+      getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      initializeSession() {
+        const existingSession = this.getCookie('vitea_session');
+        if (!existingSession) {
+          this.setCookie('vitea_session', this.sessionId);
+        } else {
+          this.sessionId = existingSession;
+        }
+
+        let visitCount = parseInt(this.getCookie('vitea_visits') || '0');
+        visitCount++;
+        this.setCookie('vitea_visits', visitCount.toString());
+
+        const lastVisit = this.getCookie('vitea_last_visit');
+        const now = new Date().toISOString();
+        this.setCookie('vitea_last_visit', now);
+
+        let pageViews = parseInt(this.getCookie('vitea_page_views') || '0');
+        pageViews++;
+        this.setCookie('vitea_page_views', pageViews.toString());
+
+        this.updateSessionInfo();
+      }
+
+      updateSessionInfo() {
+        const visitCount = this.getCookie('vitea_visits') || '0';
+        const lastVisit = this.getCookie('vitea_last_visit');
+        const pageViews = this.getCookie('vitea_page_views') || '0';
+        
+        document.getElementById('sessionId').textContent = this.sessionId.substring(0, 12) + '...';
+        document.getElementById('visitCount').textContent = visitCount;
+        document.getElementById('pageViews').textContent = pageViews;
+        
+        if (lastVisit) {
+          const date = new Date(lastVisit);
+          document.getElementById('lastVisit').textContent = date.toLocaleDateString();
+        }
+
+        setInterval(() => {
+          const timeOnSite = Math.floor((Date.now() - this.startTime) / 60000);
+          document.getElementById('timeOnSite').textContent = timeOnSite + 'm';
+        }, 60000);
+      }
+
+      hasConsent() {
+        return this.getCookie('vitea_cookie_consent') === 'accepted';
+      }
+
+      setConsent(accepted) {
+        this.setCookie('vitea_cookie_consent', accepted ? 'accepted' : 'declined');
+      }
+    }
+
+    let cookieManager;
+
+    function acceptCookies() {
+      cookieManager.setConsent(true);
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+
+    function declineCookies() {
+      cookieManager.setConsent(false);
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+
+    function toggleAdminPanel() {
+      const panel = document.getElementById('adminPanel');
+      panel.classList.toggle('show');
+    }
+
     function createParticles() {
       const particles = document.querySelector('.particles');
       const particleCount = window.innerWidth < 768 ? 20 : 40;
@@ -234,6 +584,14 @@
     }, observerOptions);
 
     document.addEventListener('DOMContentLoaded', () => {
+      cookieManager = new CookieManager();
+      
+      if (cookieManager.getCookie('vitea_cookie_consent') === null) {
+        setTimeout(() => {
+          document.getElementById('cookieBanner').classList.add('show');
+        }, 1000);
+      }
+
       createParticles();
       
       document.querySelectorAll('section').forEach(section => {
@@ -262,6 +620,10 @@
     document.addEventListener('click', (e) => {
       if (!e.target.closest('nav') && !e.target.classList.contains('mobile-menu')) {
         closeMenu();
+      }
+      
+      if (!e.target.closest('.admin-panel') && !e.target.closest('.security-badge')) {
+        document.getElementById('adminPanel').classList.remove('show');
       }
     });
   </script>
