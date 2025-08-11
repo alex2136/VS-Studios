@@ -14,8 +14,8 @@
   margin-right: 0;
   box-shadow: 0 2px 8px rgba(29,161,242,0.08);
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-  opacity: 0.7;
-  cursor: not-allowed;
+  opacity: 1;
+  cursor: pointer;
 }
 .twitter-btn:hover {
   background: #1a8cd8;
