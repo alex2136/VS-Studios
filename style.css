@@ -550,14 +550,14 @@ section h2::after {
 }
 
 .roblox-btn {
-  background: linear-gradient(135deg, #101113, #232325);
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: linear-gradient(135deg, #0a0a0b, #18191c);
+  border: 1px solid rgba(0, 0, 0, 0.28);
 }
 
 .roblox-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(16, 17, 19, 0.7);
-  background: linear-gradient(135deg, #232325, #101113);
+  box-shadow: 0 12px 30px rgba(10, 10, 11, 0.8);
+  background: linear-gradient(135deg, #18191c, #0a0a0b);
 }
 
 #home .content {
