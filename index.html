@@ -205,7 +205,7 @@
       <div class="project">
         <div class="project-header">
           <div class="project-title">
-            <div class="project-icon">💰</div>
+            <div class="project-icon"><img src="donateme.png" alt="Donate Me Logo" style="width:32px;height:32px;object-fit:contain;vertical-align:middle;"></div>
             <h3>Donate Me</h3>
           </div>
           <div class="project-status">
@@ -234,7 +234,7 @@
       <div class="project">
         <div class="project-header">
           <div class="project-title">
-            <div class="project-icon">🎁</div>
+            <div class="project-icon"><img src="pdv.png" alt="PLS DONATE V Logo" style="width:32px;height:32px;object-fit:contain;vertical-align:middle;"></div>
             <h3>PLS DONATE V</h3>
           </div>
           <div class="project-status">
@@ -366,43 +366,68 @@
   </footer>
 
   <script>
-    class CookieManager {
-      constructor() {
-        this.sessionId = this.generateSessionId();
-        this.startTime = Date.now();
-        this.initializeSession();
-      }
 
-      generateSessionId() {
-        return 'VS_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
-      }
-
-      initializeSession() {
-        const visitCount = Math.floor(Math.random() * 100) + 1;
-        const lastVisit = new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000);
-        const pageViews = Math.floor(Math.random() * 50) + 1;
-        
-        document.getElementById('sessionId').textContent = this.sessionId.substring(0, 12) + '...';
-        document.getElementById('visitCount').textContent = visitCount;
-        document.getElementById('pageViews').textContent = pageViews;
-        document.getElementById('lastVisit').textContent = lastVisit.toLocaleDateString();
-
-        setInterval(() => {
-          const timeOnSite = Math.floor((Date.now() - this.startTime) / 60000);
-          document.getElementById('timeOnSite').textContent = timeOnSite + 'm';
-        }, 60000);
-      }
+    // --- Cookie Consent Logic ---
+    function setCookieConsent(consent) {
+      localStorage.setItem('cookieConsent', consent);
     }
-
-    let cookieManager;
-
+    function getCookieConsent() {
+      return localStorage.getItem('cookieConsent');
+    }
     function acceptCookies() {
+      setCookieConsent('accepted');
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+    function declineCookies() {
+      setCookieConsent('declined');
       document.getElementById('cookieBanner').classList.remove('show');
     }
 
-    function declineCookies() {
-      document.getElementById('cookieBanner').classList.remove('show');
+    // --- Session/Visit Logic ---
+    function getOrCreateSessionId() {
+      let sessionId = sessionStorage.getItem('sessionId');
+      if (!sessionId) {
+        sessionId = 'VS_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+        sessionStorage.setItem('sessionId', sessionId);
+      }
+      return sessionId;
     }
+
+    function updateVisitStats() {
+      // Visit count
+      let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
+      let lastVisit = localStorage.getItem('lastVisit');
+      let pageViews = parseInt(sessionStorage.getItem('pageViews') || '0', 10);
+
+      // Update visit count if new session
+      if (!sessionStorage.getItem('visitedThisSession')) {
+        visitCount += 1;
+        localStorage.setItem('visitCount', visitCount);
+        sessionStorage.setItem('visitedThisSession', '1');
+        lastVisit = new Date().toISOString();
+        localStorage.setItem('lastVisit', lastVisit);
+      }
+
+      // Page views (per session)
+      pageViews += 1;
+      sessionStorage.setItem('pageViews', pageViews);
+
+      // Display
+      const sessionId = getOrCreateSessionId();
+      document.getElementById('sessionId').textContent = sessionId.substring(0, 12) + '...';
+      document.getElementById('visitCount').textContent = visitCount;
+      document.getElementById('pageViews').textContent = pageViews;
+      document.getElementById('lastVisit').textContent = lastVisit ? new Date(lastVisit).toLocaleDateString() : 'Never';
+    }
+
+    // --- Time on Site ---
+    let siteStartTime = Date.now();
+    function updateTimeOnSite() {
+      const timeOnSite = Math.floor((Date.now() - siteStartTime) / 60000);
+      document.getElementById('timeOnSite').textContent = timeOnSite + 'm';
+    }
+    setInterval(updateTimeOnSite, 60000);
+
 
     function toggleAdminPanel() {
       const panel = document.getElementById('adminPanel');
@@ -456,15 +481,21 @@
       });
     }, observerOptions);
 
+
     document.addEventListener('DOMContentLoaded', () => {
-      cookieManager = new CookieManager();
-      
-      setTimeout(() => {
-        document.getElementById('cookieBanner').classList.add('show');
-      }, 2000);
+      // Cookie banner logic
+      if (!getCookieConsent()) {
+        setTimeout(() => {
+          document.getElementById('cookieBanner').classList.add('show');
+        }, 2000);
+      }
+
+      // Session/visit logic
+      updateVisitStats();
+      updateTimeOnSite();
 
       createParticles();
-      
+
       document.querySelectorAll('section').forEach(section => {
         observer.observe(section);
       });
