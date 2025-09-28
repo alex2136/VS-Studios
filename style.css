@@ -1,7 +1,6 @@
-/* Twitter Button Styles */
 .twitter-btn {
-  background: #1da1f2;
-  color: #fff;
+  background: #1da1f2 !important;
+  color: #fff !important;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -18,15 +17,15 @@
   cursor: pointer;
 }
 .twitter-btn:hover {
-  background: #1a8cd8;
-  color: #fff;
+  background: #1a8cd8 !important;
+  color: #fff !important;
   box-shadow: 0 4px 16px rgba(29,161,242,0.15);
   transform: none;
 }
-/* YouTube Button Styles */
+
 .youtube-btn {
-  background: #ff0000;
-  color: #fff;
+  background: #ff0000 !important;
+  color: #fff !important;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -41,11 +40,12 @@
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 .youtube-btn:hover {
-  background: #e60000;
-  color: #fff;
+  background: #e60000 !important;
+  color: #fff !important;
   box-shadow: 0 4px 16px rgba(255,0,0,0.15);
   transform: translateY(-2px) scale(1.03);
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -566,7 +566,7 @@ section h2::after {
 }
 
 .discord-btn {
-  background: linear-gradient(135deg, #5865f2, #7289da);
+  background: linear-gradient(135deg, #5865f2, #7289da) !important;
 }
 
 .discord-btn:hover {
@@ -575,14 +575,14 @@ section h2::after {
 }
 
 .roblox-btn {
-  background: linear-gradient(135deg, #0a0a0b, #18191c);
+  background: linear-gradient(135deg, #0a0a0b, #18191c) !important;
   border: 1px solid rgba(0, 0, 0, 0.28);
 }
 
 .roblox-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(10, 10, 11, 0.8);
-  background: linear-gradient(135deg, #18191c, #0a0a0b);
+  background: linear-gradient(135deg, #18191c, #0a0a0b) !important;
 }
 
 #home .content {
@@ -609,357 +609,6 @@ section h2::after {
   font-weight: 400;
   letter-spacing: -0.01em;
   margin-bottom: 8px;
-}
-
-.events-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.event-card {
-  background: rgba(20, 20, 30, 0.6);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  max-width: 900px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.event-banner {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  padding: 32px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.event-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.event-badge {
-  display: inline-block;
-  background: rgba(34, 197, 94, 0.2);
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  color: #22c55e;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-.competition-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.competition-icon {
-  font-size: 2.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-}
-
-.competition-title h3 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.prize-highlight {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fbbf24;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.event-content {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-.competition-info {
-  display: grid;
-  gap: 24px;
-}
-
-.info-section h4,
-.rules-section h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.info-section h4::before {
-  content: '📋';
-  font-size: 1.2rem;
-}
-
-.rules-section h4::before {
-  content: '📜';
-  font-size: 1.2rem;
-}
-
-.info-section p {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-.rule-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 0;
-  color: rgba(255, 255, 255, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.rule-item:last-child {
-  border-bottom: none;
-}
-
-.rule-icon {
-  font-size: 1.2rem;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.channels-info {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 16px;
-}
-
-.channel-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.channel-item:last-child {
-  border-bottom: none;
-}
-
-.channel-name {
-  color: #6366f1;
-  font-weight: 600;
-  font-family: 'Courier New', monospace;
-}
-
-.channel-desc {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
-}
-
-.rewards-showcase {
-  background: rgba(99, 102, 241, 0.05);
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  border-radius: 20px;
-  padding: 32px;
-  text-align: center;
-}
-
-.rewards-showcase h4 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.rewards-showcase h4::before {
-  content: '🎁';
-  font-size: 1.5rem;
-}
-
-.rewards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.reward-tier {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 20px 16px;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.reward-tier::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  transition: left 0.5s ease;
-}
-
-.reward-tier:hover::before {
-  left: 100%;
-}
-
-.reward-tier:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.reward-tier.gold {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 193, 7, 0.05));
-  border-color: rgba(255, 215, 0, 0.3);
-  transform: scale(1.05);
-}
-
-.reward-tier.gold .tier-position {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-.reward-tier.gold .tier-prize {
-  color: #ffd700;
-}
-
-.reward-tier.silver {
-  background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(169, 169, 169, 0.05));
-  border-color: rgba(192, 192, 192, 0.3);
-}
-
-.reward-tier.silver .tier-position {
-  color: #c0c0c0;
-}
-
-.reward-tier.silver .tier-prize {
-  color: #c0c0c0;
-}
-
-.reward-tier.bronze {
-  background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(184, 115, 51, 0.05));
-  border-color: rgba(205, 127, 50, 0.3);
-}
-
-.reward-tier.bronze .tier-position {
-  color: #cd7f32;
-}
-
-.reward-tier.bronze .tier-prize {
-  color: #cd7f32;
-}
-
-.tier-position {
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.tier-prize {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #22c55e;
-}
-
-.event-actions {
-  display: flex;
-  justify-content: center;
-  padding: 32px 40px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.join-competition-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 36px;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: white;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 16px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.join-competition-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.join-competition-btn:hover::before {
-  left: 100%;
-}
-
-.join-competition-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
 }
 
 footer {
@@ -1184,6 +833,11 @@ footer {
   font-weight: 700;
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
 @media (max-width: 1200px) {
   nav {
     padding: 20px 40px;
@@ -1219,18 +873,6 @@ footer {
   
   .projects {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-  
-  .event-content {
-    padding: 32px;
-  }
-  
-  .competition-title h3 {
-    font-size: 2rem;
-  }
-  
-  .rewards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
 
@@ -1349,64 +991,6 @@ footer {
     font-size: 1.25rem;
   }
 
-  .event-banner {
-    padding: 24px 20px;
-  }
-
-  .competition-title {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .competition-title h3 {
-    font-size: 1.75rem;
-  }
-
-  .competition-icon {
-    font-size: 2rem;
-  }
-
-  .event-content {
-    padding: 24px 20px;
-    gap: 24px;
-  }
-
-  .rewards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .reward-tier {
-    padding: 16px 12px;
-  }
-
-  .tier-prize {
-    font-size: 1rem;
-  }
-
-  .event-actions {
-    padding: 24px 20px;
-  }
-
-  .join-competition-btn {
-    padding: 16px 28px;
-    font-size: 14px;
-  }
-
-  .channels-info {
-    padding: 16px;
-  }
-
-  .channel-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .rewards-showcase {
-    padding: 24px 20px;
-  }
-
   .cookie-content {
     flex-direction: column;
     align-items: stretch;
@@ -1435,36 +1019,6 @@ footer {
   .play-btn,
   .info-btn {
     width: 100%;
-  }
-
-  .competition-title h3 {
-    font-size: 1.5rem;
-  }
-
-  .event-banner {
-    padding: 20px 16px;
-  }
-
-  .event-content {
-    padding: 20px 16px;
-  }
-
-  .rewards-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .reward-tier.gold {
-    transform: none;
-  }
-
-  .event-actions {
-    padding: 20px 16px;
-  }
-
-  .join-competition-btn {
-    width: 100%;
-    justify-content: center;
   }
 
   .hero-logo-container {
@@ -1505,22 +1059,5 @@ footer {
   .card,
   .project {
     padding: 24px 20px;
-  }
-
-  .competition-title h3 {
-    font-size: 1.25rem;
-  }
-
-  .prize-highlight {
-    font-size: 1rem;
-  }
-
-  .tier-prize {
-    font-size: 0.9rem;
-  }
-
-  .join-competition-btn {
-    padding: 14px 20px;
-    font-size: 13px;
   }
 }
