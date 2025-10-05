@@ -160,6 +160,35 @@
           </span>
         </div>
       </div>
+
+      <div class="game-card paused-game" data-category="social" data-name="grow a garden modded">
+        <div class="game-img">
+          <img src="noFilter.png" alt="Grow A Garden Modded">
+          <div class="game-badge">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z"/>
+            </svg>
+            0 playing
+          </div>
+          <div class="game-tag">Social</div>
+          <div class="paused-overlay">
+            <div class="paused-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <rect x="5" y="3" width="3" height="14" rx="1"/>
+                <rect x="12" y="3" width="3" height="14" rx="1"/>
+              </svg>
+              PAUSED
+            </div>
+          </div>
+        </div>
+        <div class="game-info">
+          <div class="game-title">Grow A Garden Modded</div>
+          <span class="status-badge paused">
+            <span class="status-dot"></span>
+            PAUSED
+          </span>
+        </div>
+      </div>
     </div>
 
     <div class="no-results" id="noResults" style="display: none;">
@@ -188,56 +217,105 @@
 
   <section id="events">
     <h2>Active <span class="highlight">Events</span></h2>
-    <p class="section-desc">Join our competitions and win exclusive rewards.</p>
+    <p class="section-desc">Massive prize pools and exclusive rewards up for grabs.</p>
     
     <div class="event-card">
+      <div class="event-banner">
+        <div class="prize-spotlight">
+          <div class="prize-icon">🏆</div>
+          <div class="prize-info">
+            <span class="prize-label">Grand Prize</span>
+            <span class="prize-amount">Headless Bundle</span>
+            <span class="prize-worth">Worth 31,000 Robux</span>
+          </div>
+        </div>
+        <div class="event-timer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <span>Ends in 14 days</span>
+        </div>
+      </div>
+
       <div class="event-header">
         <h3>Invite Competition for Headless Bundle</h3>
-        <span class="event-deadline">Ends in 14 days</span>
+        <p class="event-subtitle">Invite members to our Discord and win massive prizes</p>
       </div>
       
       <div class="event-content">
-        <p class="event-intro">Win the exclusive Headless Horseman bundle by inviting members to our Discord. Read the requirements below to participate.</p>
-        
-        <div class="event-requirements">
-          <h4>Requirements</h4>
-          <ul>
-            <li>Must use your own Discord vanity link, not our preset /pdv</li>
-            <li>No alt accounts allowed - violators will be blacklisted</li>
-            <li>Invited users must have activity in the server</li>
-            <li>All invites must result in server joins</li>
-            <li>Must follow Discord Terms of Service</li>
-          </ul>
-        </div>
-
-        <div class="event-rewards">
-          <h4>Prizes</h4>
-          <div class="rewards-list">
-            <div class="reward-item grand-prize">
-              <span class="reward-place">1st</span>
-              <span class="reward-value">Headless Horseman Bundle (31,000 Robux)</span>
-            </div>
-            <div class="reward-item">
-              <span class="reward-place">2nd</span>
-              <span class="reward-value">5,000 Robux</span>
-            </div>
-            <div class="reward-item">
-              <span class="reward-place">3rd</span>
-              <span class="reward-value">3,000 Robux</span>
-            </div>
-            <div class="reward-item">
-              <span class="reward-place">4th</span>
-              <span class="reward-value">2,500 Robux</span>
-            </div>
-            <div class="reward-item">
-              <span class="reward-place">5th-10th</span>
-              <span class="reward-value">1,000 Robux each</span>
-            </div>
+        <div class="event-grid">
+          <div class="event-section">
+            <h4>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+              How to Enter
+            </h4>
+            <ul class="event-list">
+              <li>Use your own Discord vanity link to invite members</li>
+              <li>Make sure invited members join and stay active</li>
+              <li>Follow Discord Terms of Service</li>
+              <li>No alt accounts - violators get blacklisted</li>
+            </ul>
           </div>
-          <div class="total-prize">Total Prize Pool: 47,500 Robux</div>
+
+          <div class="event-section">
+            <h4>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              Prize Pool
+            </h4>
+            <div class="prizes-compact">
+              <div class="prize-row winner">
+                <span class="prize-rank">1st Place</span>
+                <span class="prize-reward">Headless Bundle (31K Robux)</span>
+              </div>
+              <div class="prize-row">
+                <span class="prize-rank">2nd Place</span>
+                <span class="prize-reward">5,000 Robux</span>
+              </div>
+              <div class="prize-row">
+                <span class="prize-rank">3rd Place</span>
+                <span class="prize-reward">3,000 Robux</span>
+              </div>
+              <div class="prize-row">
+                <span class="prize-rank">4th Place</span>
+                <span class="prize-reward">2,500 Robux</span>
+              </div>
+              <div class="prize-row">
+                <span class="prize-rank">5th-10th</span>
+                <span class="prize-reward">1,000 Robux each</span>
+              </div>
+            </div>
+            <div class="total-pool">Total: 47,500 Robux</div>
+          </div>
         </div>
 
-        <p class="event-note">Content creators who promote this event on YouTube, Twitter, or TikTok get higher chances to win.</p>
+        <div class="event-cta">
+          <div class="cta-content">
+            <h4>Ready to compete?</h4>
+            <p>Join our Discord server now and start inviting to win big</p>
+          </div>
+          <a href="https://discord.gg/PDV" target="_blank" class="cta-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.865-.608 1.25-1.845-.276-3.68-.276-5.487 0-.163-.393-.406-.875-.617-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            Join Discord Now
+          </a>
+        </div>
+
+        <div class="event-boost">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <p>Content creators who promote this event on YouTube, Twitter, or TikTok get bonus entries and higher chances to win!</p>
+        </div>
       </div>
     </div>
   </section>
